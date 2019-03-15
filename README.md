@@ -18,7 +18,10 @@ Use the below shape to build out your mock api. [Example Here](https://github.co
 
 You should be greeted with a few messages in the console, or errors pointing out what went wrong.
 
-Orz if you have npx, skip all of the above and run 
+###### Or
+
+if you have npx, skip all of the above and run 
+
 ```npx rest-mock-json -f <path/to/your/json/filename.json>```
 
 #### JSON Shape
