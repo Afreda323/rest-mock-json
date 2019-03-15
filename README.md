@@ -10,7 +10,7 @@ This project is aimed to help UI developers create mock Express applications to 
 
 ###### Create a JSON file
 
-Use the below shape to build out your mock api. [Example Here]('Example.json')
+Use the below shape to build out your mock api. [Example Here](https://github.com/Afreda323/rest-mock-json/blob/master/Example.json)
 
 ###### Run Server
 
