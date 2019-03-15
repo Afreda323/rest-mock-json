@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import chalk from 'chalk'
 import fs from 'fs'
 import program from 'commander'
@@ -42,7 +41,7 @@ program
 
 // Verify that a file name was specified
 if (!program.file) {
-  console.error(chalk.bgRed('Please specify a file:'), '-f <YOUR_FILE_PATH>')
+  console.error(chalk.red('Please specify a file:'), '-f <YOUR_FILE_PATH>')
   process.exit(1)
 }
 
@@ -61,7 +60,7 @@ try {
   json = validateJsonShape(JSON.parse(file))
 } catch (e) {
   console.error(
-    chalk.bgRed('Invalid file specified:'),
+    chalk.red('Invalid file specified:'),
     'Please select an existing JSON file, and verify that it is of the correct shape',
   )
   console.error(e)

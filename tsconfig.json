@@ -5,7 +5,7 @@
     "types": ["node"],
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "outDir": "./bin",
+    "outDir": "./lib",
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "skipDefaultLibCheck": true,
@@ -24,6 +24,6 @@
   "include": ["src"],
   "exclude": [
     "node_modules",
-    "bin"
+    "lib"
   ]
 }

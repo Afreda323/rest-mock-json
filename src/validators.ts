@@ -11,7 +11,7 @@ export const validateFileName = (fileName: string): string | void => {
     return fileName
   } else {
     console.error(
-      chalk.bgRed('Invalid File Name:'),
+      chalk.red('Invalid File Name:'),
       'Please provide a file name with the extension ".json"',
     )
     process.exit(1)

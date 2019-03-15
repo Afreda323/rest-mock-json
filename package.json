@@ -1,8 +1,8 @@
 {
   "name": "rest-mock-json",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "description": "Mock express API powered by json",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/index.ts --extensions \".ts\" -- -f ./hide/foo.json",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir bin --extensions \".ts,.tsx\" --source-maps inline",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -26,9 +26,7 @@
   ],
   "author": "Anthony Freda <anthonyfreda323@gmail.com>",
   "license": "ISC",
-  "bin": {
-    "rest-mock-json": "./bin/index.js"
-  },
+  "bin": "./bin/index.js",
   "preferGlobal": true,
   "devDependencies": {
     "@babel/cli": "^7.2.0",
