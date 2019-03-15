@@ -13,6 +13,13 @@
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "prepublish": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Afreda323/rest-mock-json"
+  },
+  "bugs": {
+    "url": "https://github.com/Afreda323/rest-mock-json/issues"
+  },
   "keywords": [
     "mock",
     "api",
