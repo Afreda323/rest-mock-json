@@ -30,10 +30,12 @@ if you have npx, skip then installation step and run
 
 This package can also be installed to your project and called from your `package.json`
 
+`npm install --save-dev rest-mock-json`
+
 ```json
 {
     "scripts": {
-        "mock-api": "npx rest-mock-json -f <path/to/your/json/filename.json>"
+        "mock-api": "rest-mock-json -f <path/to/your/json/filename.json>"
     }
 }
 ```
