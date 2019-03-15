@@ -20,7 +20,7 @@ You should be greeted with a few messages in the console, or errors pointing out
 
 #### JSON Shape
 
-All unmarked values are required
+Optional values labelled.
 
 ```js
 {
