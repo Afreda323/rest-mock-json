@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
-    "moduleResolution": "Node",
+    "types": ["node"],
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./lib",
     "allowJs": false,
@@ -18,8 +19,7 @@
     "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "declaration": true,
-    "lib": ["dom", "dom.iterable", "esnext"]
+    "declaration": true
   },
   "include": ["src"],
   "exclude": [
