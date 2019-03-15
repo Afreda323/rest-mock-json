@@ -1,4 +1,4 @@
-### Mock JSON REST un devAPI Generator
+### Mock JSON REST API Generator
 
 This project is aimed to help UI developers create mock Express applications to allow for easier testing, and for setting up API calls to a server that may not exist yet. It is super easy to set up, and supports most use cases for hitting a REST API.
 
