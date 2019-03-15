@@ -2,7 +2,7 @@
   "name": "json_api",
   "version": "1.0.0",
   "description": "Mock express API powered by json",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/index.ts --extensions \".ts\" -- -f ./hide/foo.json",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,8 @@
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir bin --extensions \".ts,.tsx\" --source-maps inline"
+    "build:js": "babel src --out-dir bin --extensions \".ts,.tsx\" --source-maps inline",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "mock",
