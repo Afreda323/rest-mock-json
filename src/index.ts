@@ -25,7 +25,7 @@ interface IJson {
   port: number
   baseUrl: string
   endpoints: IEndpoint[]
-  404?: any
+  notFound?: any
 }
 
 /**
@@ -38,7 +38,7 @@ const validateFileName = (fileName: string): string | void => {
     return fileName
   } else {
     console.error(
-      chalk.red('Invalid File Name:'),
+      chalk.bgRed('Invalid File Name:'),
       'Please provide a file name with the extension ".json"',
     )
     process.exit(1)
@@ -153,7 +153,7 @@ program
 
 // Verify that a file name was specified
 if (!program.file) {
-  console.error(chalk.red('Please specify a file:'), '-f <YOUR_FILE_PATH>')
+  console.error(chalk.bgRed('Please specify a file:'), '-f <YOUR_FILE_PATH>')
   process.exit(1)
 }
 
@@ -166,7 +166,7 @@ try {
   json = validateJsonShape(JSON.parse(file))
 } catch (e) {
   console.error(
-    chalk.red('Invalid file specified:'),
+    chalk.bgRed('Invalid file specified:'),
     'Please select an existing JSON file, and verify that it is of the correct shape',
   )
   console.error(e)
@@ -191,10 +191,13 @@ json.endpoints
 app.use(json.baseUrl, router)
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json(json[404] || { status: 404, message: 'Route not found' })
+  res.status(404).json(json.notFound || { status: 404, message: 'Route not found' })
 })
-
-app.listen(json.port, () => {
+console.log(
+    chalk.bgRed('404'),
+    'handler has mounted',
+  )
+const server = app.listen(json.port, () => {
   console.log(
     '\nMock JSON server listening on port:',
     chalk.cyan(String(json.port)),
