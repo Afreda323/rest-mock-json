@@ -46,14 +46,15 @@ if (!program.file) {
   process.exit(1)
 }
 
+console.log('🔥🔥🔥  REST Mock JSON API 🔥🔥🔥')
+
 /**
  * Parse the JSON the user has pointed to
  * Validate and handle errors accordingly
  */
-
 let json: IJson
 try {
-  console.log('Attempting to pull from:', chalk.cyan(program.file))
+  console.log('\nAttempting to pull from:', chalk.cyan(program.file))
   const file = fs.readFileSync(program.file, 'utf8')
 
   console.log('Parsing File:', chalk.cyan(program.file))

@@ -1,5 +1,5 @@
 {
-  "name": "json-mock-api",
+  "name": "rest-mock-json",
   "version": "1.0.0",
   "description": "Mock express API powered by json",
   "main": "src/index.js",

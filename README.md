@@ -1,4 +1,4 @@
-### Mock JSON API Generator
+### Mock JSON REST API Generator
 
 This project is aimed to help UI developers create mock Express applications to allow for easier testing, and for setting up API calls to a server that may not exist yet. It is super easy to set up, and supports most use cases for hitting a REST API.
 
@@ -6,7 +6,7 @@ This project is aimed to help UI developers create mock Express applications to 
 
 ###### Install
 
-`npm install -g json-mock-api`
+`npm install -g rest-mock-json`
 
 ###### Create a JSON file
 
@@ -14,7 +14,7 @@ Use the below shape to build out your mock api. [Example Here]('Example.json')
 
 ###### Run Server
 
-`json-mock-api -f <path/to/your/json/filename.json>`
+`rest-mock-json -f <path/to/your/json/filename.json>`
 
 You should be greeted with a few messages in the console, or errors pointing out what went wrong.
 
