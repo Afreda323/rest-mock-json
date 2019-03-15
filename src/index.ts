@@ -27,8 +27,22 @@ if (!program.file) {
 
 console.log(program.file)
 
-const file = fs.readFileSync(program.file, 'utf8')
+let json
+
+try {
+  const file = fs.readFileSync(program.file, 'utf8')
+  json = JSON.parse(file)
+} catch (e) {
+  console.error(
+    chalk.red('Invalid file specified:'),
+    'Please select an existing JSON file',
+  )
+  console.error(e)
+  process.exit(1)
+}
 
 
+
+console.log(json)
 
 console.log(chalk.cyan('HELLO'))
