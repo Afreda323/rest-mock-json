@@ -23,7 +23,7 @@ You should be greeted with a few messages in the console, or errors pointing out
 All unmarked values are required
 
 ```js
-
+{
   "port": number, // Port the app will listen on
   "baseUrl": string, // starts with "/"
   "notFound": any, // OPTIONAL 404 response
