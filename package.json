@@ -1,0 +1,38 @@
+{
+  "name": "json_api",
+  "version": "1.0.0",
+  "description": "Mock express API powered by json",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mock",
+    "api",
+    "express",
+    "server",
+    "backend",
+    "frontend",
+    "test",
+    "router",
+    "json"
+  ],
+  "author": "Anthony Freda <anthonyfreda323@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/chalk": "^2.2.0",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.1",
+    "nodemon": "^1.18.10",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  }
+}
