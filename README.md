@@ -4,6 +4,20 @@ This project is aimed to help UI developers create mock Express applications to 
 
 #### Usage
 
+###### Install
+
+```npm install -g json-mock-api```
+
+###### Create a JSON file
+
+Use the below shape to build out your mock api
+
+###### Run Server
+
+```json-mock-api -f <path/to/your/json/filename.json>```
+
+You should be greeted with a few messages in the console, or errors pointing out what went wrong.
+
 #### JSON Shape
 
 All unmarked values are required
@@ -31,3 +45,8 @@ All unmarked values are required
 }
 
 ```
+
+#### TODO
+
+- More dynamic responses
+- Test coverage
