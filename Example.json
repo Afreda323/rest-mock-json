@@ -1,0 +1,103 @@
+{
+  "port": 8081,
+  "baseUrl": "/api",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/foo",
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "foo": "bar"
+        }
+      },
+      "error": {
+        "statusCode": 500,
+        "body": {
+          "dun": "goofed"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/foo",
+      "shouldError": true,
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "foo": "bar"
+        }
+      },
+      "error": {
+        "statusCode": 500,
+        "body": {
+          "dun": "goofed"
+        }
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/foo/:id",
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "foo": "bar"
+        }
+      },
+      "error": {
+        "statusCode": 500,
+        "body": {
+          "dun": "goofed"
+        }
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/foo/:id",
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "foo": "bar"
+        }
+      },
+      "error": {
+        "statusCode": 500,
+        "body": {
+          "dun": "goofed"
+        }
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/foo/:id",
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "foo": "bar"
+        }
+      },
+      "error": {
+        "statusCode": 500,
+        "body": {
+          "dun": "goofed"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/foo/:id",
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "foo": "bar"
+        }
+      },
+      "error": {
+        "statusCode": 500,
+        "body": {
+          "dun": "goofed"
+        }
+      }
+    }
+  ]
+}
