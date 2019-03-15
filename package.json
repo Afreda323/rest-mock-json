@@ -1,6 +1,6 @@
 {
   "name": "rest-mock-json",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Mock express API powered by json",
   "main": "lib/index.js",
   "scripts": {

@@ -4,7 +4,9 @@ This project is aimed to help UI developers create mock Express applications to 
 
 #### Usage
 
-###### Install
+###### Global Install
+
+Install the package globally
 
 `npm install -g rest-mock-json`
 
@@ -18,11 +20,23 @@ Use the below shape to build out your mock api. [Example Here](https://github.co
 
 You should be greeted with a few messages in the console, or errors pointing out what went wrong.
 
-###### Or
+##### NPX
 
-if you have npx, skip all of the above and run 
+if you have npx, skip then installation step and run
 
-```npx rest-mock-json -f <path/to/your/json/filename.json>```
+`npx rest-mock-json -f <path/to/your/json/filename.json>`
+
+##### Dev Dependency
+
+This package can also be installed to your project and called from your `package.json`
+
+```json
+{
+    "scripts": {
+        "mock-api": "npx rest-mock-json -f <path/to/your/json/filename.json>"
+    }
+}
+```
 
 #### JSON Shape
 
@@ -50,7 +64,7 @@ Optional values labelled.
   ]
 }
 
-```
+````
 
 #### TODO
 
