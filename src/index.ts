@@ -1,31 +1,31 @@
 import chalk from 'chalk'
 import fs from 'fs'
 import program from 'commander'
-import express from 'express'
+import express, { Router, Request, Response, IRouterMatcher } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 
 const METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 
 // Shape of expected json file
+interface IEndpoint {
+  method?: string
+  path: string
+  shouldError?: boolean
+  response: {
+    statusCode: number
+    body: any
+  }
+  error: {
+    statusCode: number
+    body: any
+  }
+}
 interface IJson {
   port: number
   baseUrl: string
-  endpoints: [
-    {
-      method?: string
-      path: string,
-      shouldError?: boolean,
-      response: {
-        statusCode: number
-        body: any
-      }
-      error: {
-        statusCode: number
-        body: any
-      }
-    }
-  ]
+  endpoints: IEndpoint[]
+  404?: any
 }
 
 /**
@@ -81,22 +81,63 @@ const validateJsonShape = (json: IJson) => {
   return json
 }
 
-const printEndpoint = (path: string, method: string = 'GET') => {
-  switch (method) {
-    case 'GET':
-      console.log(chalk.magenta(method), chalk.cyan(path), 'has mounted')
-      break
+const makeResponse = (
+  endpoint: IEndpoint,
+): [string, (req: Request, res: Response) => void] => [
+  endpoint.path,
+  (req, res) => {
+    res
+      .status(
+        endpoint.shouldError
+          ? endpoint.error.statusCode
+          : endpoint.response.statusCode,
+      )
+      .json(endpoint.shouldError ? endpoint.error.body : endpoint.response.body)
+  },
+]
+
+const addEndpoint = (router: Router, endpoint: IEndpoint) => {
+  switch (endpoint.method) {
     case 'POST':
-      console.log(chalk.green(method), chalk.cyan(path), 'has mounted')
+      router.post(...makeResponse(endpoint))
+      console.log(
+        chalk.green(endpoint.method),
+        chalk.cyan(endpoint.path),
+        'has mounted',
+      )
       break
     case 'PUT':
-      console.log(chalk.yellow(method), chalk.cyan(path), 'has mounted')
+      router.put(...makeResponse(endpoint))
+      console.log(
+        chalk.yellow(endpoint.method),
+        chalk.cyan(endpoint.path),
+        'has mounted',
+      )
       break
     case 'PATCH':
-      console.log(chalk.yellowBright(method), chalk.cyan(path), 'has mounted')
+      router.patch(...makeResponse(endpoint))
+      console.log(
+        chalk.yellowBright(endpoint.method),
+        chalk.cyan(endpoint.path),
+        'has mounted',
+      )
       break
     case 'DELETE':
-      console.log(chalk.red(method), chalk.cyan(path), 'has mounted')
+      router.delete(...makeResponse(endpoint))
+      console.log(
+        chalk.red(endpoint.method),
+        chalk.cyan(endpoint.path),
+        'has mounted',
+      )
+      break
+    case 'GET':
+    default:
+      router.get(...makeResponse(endpoint))
+      console.log(
+        chalk.magenta(endpoint.method),
+        chalk.cyan(endpoint.path),
+        'has mounted',
+      )
       break
   }
 }
@@ -144,9 +185,14 @@ const router = express.Router()
 json.endpoints
   .sort((a, b) => METHODS.indexOf(a.method) - METHODS.indexOf(b.method))
   .forEach((endpoint) => {
-    printEndpoint(endpoint.path, endpoint.method)
+    addEndpoint(router, endpoint)
   })
+
 app.use(json.baseUrl, router)
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json(json[404] || { status: 404, message: 'Route not found' })
+})
 
 app.listen(json.port, () => {
   console.log(
