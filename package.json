@@ -4,7 +4,7 @@
   "description": "Mock express API powered by json",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/index.ts --extensions \".ts\" -- -f ./foo.json",
+    "dev": "nodemon --exec babel-node src/index.ts --extensions \".ts\" -- -f ./hide/foo.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
