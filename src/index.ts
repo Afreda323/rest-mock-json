@@ -45,8 +45,6 @@ if (!program.file) {
   process.exit(1)
 }
 
-console.log('Attempting to pull from:', chalk.cyan(program.file))
-
 /**
  * Parse the JSON the user has pointed to
  * Validate and handle errors accordingly
@@ -54,7 +52,10 @@ console.log('Attempting to pull from:', chalk.cyan(program.file))
 
 let json: IJson
 try {
+  console.log('Attempting to pull from:', chalk.cyan(program.file))
   const file = fs.readFileSync(program.file, 'utf8')
+
+  console.log('Parsing File:', chalk.cyan(program.file))
   json = validateJsonShape(JSON.parse(file))
 } catch (e) {
   console.error(
@@ -74,6 +75,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 console.log('Base URL:', chalk.cyan(json.baseUrl))
+console.log('\u2500'.repeat(10))
 /**
  * Build routes based on endpoints
  * Sorts and loops endpoints, uses endpoint builder helper func
