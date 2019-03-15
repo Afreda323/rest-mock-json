@@ -1,6 +1,6 @@
 {
   "name": "rest-mock-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mock express API powered by json",
   "main": "src/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "author": "Anthony Freda <anthonyfreda323@gmail.com>",
   "license": "ISC",
   "bin": {
-    "dosomethingawesome": "./bin/index.js"
+    "rest-mock-json": "./bin/index.js"
   },
   "preferGlobal": true,
   "devDependencies": {
